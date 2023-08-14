@@ -1,0 +1,146 @@
+// -----------------------------------------------------------------------------
+// This file contains all typography-related rules
+// -----------------------------------------------------------------------------
+body {
+	font-family: $font-stack;
+	color: var(--c-green-darkest);
+	font-weight: $font-weight-regular;
+}
+
+h1, h2, h3, h4, h5, h6, p,
+.h1, .h2, .h3, .h4, .h5, .h6, .p {
+	margin: 0;
+	margin-bottom: .45em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-decorative;
+	font-weight: $font-weight-regular;
+	line-height: 1.3;
+}
+
+h1,
+.h1 {
+    @include fluid-type(font-size, 320px, 1180px, 35px, 30px);
+}
+
+h2,
+.h2 {
+	@include fluid-type(font-size, 320px, 1366px, 20px, 25px);
+}
+
+h3,
+.h3 {
+	@include fluid-type(font-size, 320px, 1366px, 16px, 19px);
+}
+
+h4,
+.h4 {
+	@include fluid-type(font-size, 320px, 1366px, 15px, 18px);
+}
+
+h5,
+.h5 {
+	@include fluid-type(font-size, 320px, 1366px, 14px, 17px);
+}
+
+h6,
+.h6 {
+	@include fluid-type(font-size, 320px, 1366px, 13px, 16px);
+}
+
+p,
+.p,
+li,
+select,
+textarea,
+input {
+	line-height: 1.5;
+	@include fluid-type(font-size, 320px, 1366px, 13px, 14px);
+}
+
+.whitespace {
+	&--nowrap {
+		white-space: nowrap;
+	}
+}
+
+.text {
+	&-c {
+		&--black {
+			color: var(--c-black);
+		}
+		&--red {
+			color: var(--c-red);
+		}
+		&--grey {
+			color: var(--c-grey);
+		}
+		&--white {
+			color: var(--c-white);
+		}
+		&--transparent {
+			color: var(--c-transparent);
+		}
+		&--grey-light {
+			color: var(--c-grey-light);
+		}
+		&--grey-dark {
+			color: var(--c-grey-dark);
+		}
+		&--grey-darkest {
+			color: var(--c-grey-darkest);
+		}
+	}
+
+	&-transform {
+		&--uppercase {
+			text-transform: uppercase !important;
+		}
+	}
+
+	&-align {
+		&--left {
+			text-align: left !important;
+		}
+		&--center {
+			text-align: center !important;
+		}
+		&--right {
+			text-align: right !important;
+		}
+	}
+
+	&--underline {
+		text-decoration: underline;
+	}
+
+	&--underline-none {
+		text-decoration: none;
+	}
+}
+
+.font {
+	&-weight {
+		&--400 {
+			font-weight: 400
+		}
+
+		&--500 {
+			font-weight: 500
+		}
+
+		&--600 {
+			font-weight: 600
+		}
+
+		&--700 {
+			font-weight: 700
+		}
+
+		&--800 {
+			font-weight: 800
+		}
+	}
+}

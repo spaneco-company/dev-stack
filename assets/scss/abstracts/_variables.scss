@@ -1,0 +1,148 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$media-breakpoints: (
+	'': 0,
+	'xs': 480px,
+	'sm': 576px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px,
+	'2xl': 1400px
+) !default;
+
+$media-expressions: (
+	'screen': 'screen',
+	'print': 'print',
+	'handheld': 'handheld',
+	'landscape': '(orientation: landscape)',
+	'portrait': '(orientation: portrait)',
+	'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)',
+	'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi), (min-resolution: 3dppx)'
+) !default;
+
+
+$display-types: (
+	none,
+	inline,
+	inline-block,
+	block,
+	table,
+	table-cell,
+	table-row,
+	flex,
+	inline-flex,
+	grid,
+	inline-grid,
+) !default;
+
+$unit-intervals: (
+	'px': 1,
+	'em': 0.01,
+	'rem': 0.1,
+	'': 0
+) !default;
+
+$im-media-support: true !default;
+$im-no-media-breakpoint: 'desktop' !default;
+$im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
+// Configuration and helpers for include-media.scss end-->
+
+$_space-amounts: (0, 1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100); // Adjust this to include the pixel amounts you need.
+$_sides: (top, bottom, left, right); // Leave this variable alone
+// Configuration and helpers for spacing-helpers end-->
+
+$_grid-align-values: (start, center, end, space-around, space-between) !default;
+$_grid-align-types: (align-self, justify-self, justify-content, align-items) !default;
+
+$_grid-layout-sizes: (
+	1: 8.33%,
+	2: 16.666%,
+	3: 25%,
+	4: 33.333%,
+	5: 41.667%,
+	6: 50%,
+	7: 58.333%,
+	8: 66.667%,
+	9: 75%,
+	10: 83.333%,
+	11: 91.667%,
+	12: 100%,
+);
+// Configuration and helpers for grid.scss end-->
+
+// -----------------------------------------------------------------------------
+// Custom variables go below
+// -----------------------------------------------------------------------------
+
+// Fonts
+//$font-stack: 'Kanit', sans-serif;
+$font-stack: 'Montserrat', sans-serif;
+$font-decorative: 'Comfortaa', cursive;
+$font-min-size: 13px;
+$font-max-size: 23px;
+$font-mod-phone: 1.05; // mobile
+$font-mod-desktop: 1.25; // desktop
+$font-min-width: map-get($media-breakpoints, "xs");
+$font-max-width: map-get($media-breakpoints, "xl");
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+
+// Colours
+$colour-black: #000;
+$colour-white: #fff;
+$colour-anthracite: #2D2D2D;
+$colour-grey: #BEBEBE;
+$colour-pink: #DD3590;
+
+// BTN
+$colour-green-ultra-light: #E3ECC1;
+$colour-green-light: #91B508;
+$colour-green-dark: #165425;
+$colour-green-faded: #AEC3B3;
+$colour-grey-darkest: #333333;
+
+$colour-grey-light: #CECECE;
+$colour-grey-dark: #626262;
+$colour-grey-faded: #DDDDDD;
+
+$colour-orange: #D68D03;
+$colour-red: #EF3C40;
+
+// icon-faded #DDDDDD
+// icon-active #165425
+// breakfast/lunch/dinner headings #797979
+// calories #CECECE
+
+// BUTTONS
+// order-bg #91B508
+// order-fc #FFFFFF
+// order-bg:hover #165425
+// order-fc:hover #FFFFFF
+
+// food-menu-bg #165425
+// food-menu-fc #FFFFFF
+// food-menu-bg:hover #91B508
+// food-menu-fc:hover #FFFFFF
+// food-menu-faded-bg: #2B2B2B
+// food-menu-faded-fc: #FFFFFF
+
+// finish-order-bg #4E4E4E
+// finish-order-fc #FFFFFF
+// finish-order-bg:hover #91B508
+// finish-order-fc:hover #FFFFFF
+
+// more-about-bg #FFFFFF
+// more-about-fc #165425
+// more-about-bg:hover #91B508
+// more-about-fc:hover #FFFFFF
+
+// more-info-bg #FFFFFF
+// more-info-fc ##626262
+// more-info-bg:hover ##626262
+// more-info-fc:hover #FFFFFF

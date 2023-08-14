@@ -1,0 +1,51 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+// 1. Configuration and helpers
+@import 'abstracts/variables';
+@import 'abstracts/libraries/include-media';
+@import 'abstracts/libraries/fluid-typography';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// 2. Vendor
+//@import 'vendors/fancybox';
+
+// 3. Vendor-extension
+//@import 'vendors-extensions/tom-select.default.custom';
+
+// 4. Base stuff
+@import 'base/normalize';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/helpers';
+@import 'base/svg';
+
+// 5. Layout-related section
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/nav';
+@import 'layout/footer';
+
+// 6. Components
+@import 'components/buttons';
+@import 'components/lists';
+@import 'components/picture';
+@import 'components/burger';
+@import 'components/breadcrumb';
+@import 'components/gallery';
+@import 'components/cms';
+@import 'components/youtube';
+@import 'components/inputs';
+@import 'components/transitions';
+@import 'components/pagination';
+@import 'components/loading';
+@import 'components/lazy';
+@import 'components/form';
+@import 'components/keyframes';
+
+// 7. Page-specific styles
+//@import 'pages/page';
+
+// 8. Themes
+@import 'themes/default';

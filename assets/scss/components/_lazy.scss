@@ -1,0 +1,5 @@
+.lazy {
+  &:not(.lz-loaded) {
+    @extend .loading__item;
+  }
+}

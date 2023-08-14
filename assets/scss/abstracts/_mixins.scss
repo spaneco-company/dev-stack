@@ -1,0 +1,97 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin transition-default {
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
+  @content;
+}
+
+@mixin burger-open {
+    rect:nth-child(1) {
+        transform: rotate(45deg) translate(0, 6px) scaleX(1);
+        transform-origin: center;
+    }
+    rect:nth-child(2) {
+        opacity: 0;
+        transform: translate(-20px, 0);
+        transform-origin: center;
+    }
+    rect:nth-child(3) {
+        transform: rotate(-45deg) translate(0, -6px);
+        transform-origin: center;
+    }
+
+    .nav {
+        right: 0;
+    }
+}
+
+
+@mixin transform-rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+    @content;
+}
+
+@mixin custom-scrollbar($width: 6px, $height: 6px, $border-radius: 6px, $background-track: #ddd, $background-thumb: #666) {
+  // FF
+  scrollbar-color: $background-thumb $background-track;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-track;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $background-thumb;
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $background-thumb;
+  }
+}

@@ -1,0 +1,145 @@
+.row {
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+    &.center {
+        justify-content: center;
+    }
+}
+
+.flex {
+  display: flex;
+
+  &--inline {
+    display: inline-flex;
+  }
+}
+
+.col {
+  flex-direction: column;
+
+  &--reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+.first {
+  order: -1;
+}
+
+.last {
+  order: 1;
+}
+
+.spacer {
+  flex-grow: 1 !important;
+}
+
+.gap {
+  &--5 {
+    gap: 5px;
+  }
+
+  &--10 {
+    gap: 10px;
+  }
+
+  &--20 {
+    gap: 20px;
+  }
+
+  &--30 {
+    gap: 30px;
+  }
+}
+
+/**
+ * Generates classes which allow a user to set order for a specific viewport
+ * e.g. order-lg-1, order-sm-5
+ */
+
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $property: 'order';
+  $operator: '>=';
+  $media-breakpoint-dash: '-';
+
+  @if $media-breakpoint-key == '' {
+    $media-breakpoint-dash: '';
+  }
+
+  @for $i from 1 through 10 {
+    @include media('#{$operator}#{$media-breakpoint-key}') {
+      .#{$property}-#{$media-breakpoint-key}#{$media-breakpoint-dash}#{$i} {
+        #{$property}: #{$i} !important;
+      }
+    }
+  }
+}
+
+/**
+ * Generates classes which allow a user to set aligning for a specific viewport
+ * e.g. align-items-space-around, justify-self-sm-space-around, justify-content-sm-start, and etc.
+ */
+
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $operator: '>=';
+  $media-breakpoint-dash: '-';
+
+  @if $media-breakpoint-key == '' {
+    $media-breakpoint-dash: '';
+  }
+
+  @each $_grid-align-type-value in $_grid-align-types {
+    @each $_grid-align-value-value in $_grid-align-values {
+      @include media('#{$operator}#{$media-breakpoint-key}') {
+        .#{$_grid-align-type-value}#{$media-breakpoint-dash}#{$media-breakpoint-key}-#{$_grid-align-value-value} {
+          #{$_grid-align-type-value}: $_grid-align-value-value !important;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Generates grid classes
+ */
+
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $operator: '>=';
+  $col-name: 'col-';
+
+  @if $media-breakpoint-key == '' {
+    $col-name: 'col';
+  }
+
+  @include media('#{$operator}#{$media-breakpoint-key}') {
+    .#{$col-name}#{$media-breakpoint-key} {
+      flex: 1 1 0;
+      max-width: 100%;
+    }
+
+    .#{$col-name}#{$media-breakpoint-key}--bare {
+      flex: 0 0 auto;
+    }
+
+    @each $key, $value in $_grid-layout-sizes {
+      .#{$col-name}#{$media-breakpoint-key}-#{$key} {
+        flex: 0 0 #{$value};
+        max-width: #{$value};
+      }
+
+      @if $key < 12 {
+        .#{$col-name}#{$media-breakpoint-key}-offset-#{$key} {
+          margin-left: #{$value};
+        }
+      }
+    }
+  }
+}
+
+

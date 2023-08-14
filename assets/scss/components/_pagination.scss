@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the pagination component.
+// -----------------------------------------------------------------------------
+
+.paginator {
+  width: 100%;
+}
+
+.paginator ul {
+  padding: 20px 0;
+  margin: 0;
+  text-align: center;
+  list-style: none;
+}
+
+.paginator ul li {
+  display: inline-block;
+  width: auto;
+  margin-left: auto;
+  min-width: 35px;
+  min-height: 35px;
+  font-size: 1.3rem;
+    margin: 0 3px;
+
+  &::before {
+    display: none;
+  }
+}
+
+.paginator ul li a {
+  display: block;
+  padding: 5px 10px;
+  background: #fff;
+  color: #333333;
+  border: 1px solid #333333;
+  text-decoration: none;
+}
+
+.paginator ul li:hover a,
+.paginator ul li.active a {
+  background: #333333;
+  color: #fff;
+}

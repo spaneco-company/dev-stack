@@ -1,0 +1,69 @@
+.cms {
+  strong {
+    font-weight: $font-weight-bold;
+  }
+
+  a {
+    @extend a;
+    * {
+      color: inherit !important;
+    }
+  }
+
+  p, span, div {
+    @extend p;
+  }
+
+  h1 {
+    @extend h1;
+  }
+
+  h2 {
+    @extend h2;
+  }
+
+  h3 {
+    @extend h3;
+  }
+
+  h4 {
+    @extend h4;
+  }
+
+  h5 {
+    @extend h5;
+  }
+
+  h6 {
+    @extend h6;
+  }
+
+  ul {
+    @extend ul;
+  }
+
+  li {
+    @extend li;
+  }
+
+  iframe,
+  video {
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  img {
+    padding: 30px;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  &::after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}  //--------> cms end

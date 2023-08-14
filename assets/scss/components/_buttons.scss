@@ -1,0 +1,125 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the buttons components.
+// -----------------------------------------------------------------------------
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    border: none;
+    font-weight: 400;
+    padding: 5px 10px;
+    text-decoration: none;
+    @include transition-default;
+
+    &--tiny {
+        min-height: 30px;
+        padding: 7px 14px;
+    }
+
+    &--big {
+        height: 45px;
+        width: 140px;
+    }
+
+    &--mw {
+        @include fluid-type(min-width, 320px, 1366px, 250px, 300px);
+    }
+
+    &--faded {
+        opacity: .35;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+    }
+
+    &--black {
+        --c-bg-colour: var(--c-text, #000);
+        --c-border-colour: var(--c-text, #000);
+        --c-fc-colour: var(--c-white, #fff);
+
+        color: var(--c-fc-colour);
+        background: var(--c-bg-colour);
+        border: 1px solid var(--c-border-colour);
+        &:hover {
+            --c-bg-colour: var(--c-white);
+            --c-fc-colour: var(--c-text);
+        }
+    }
+
+    &--white {
+        --c-bg-colour: var(--c-white, #fff);
+        --c-border-colour: var(--c-text, #000);
+        --c-fc-colour: var(--c-text, #000);
+
+        color: var(--c-fc-colour);
+        background: var(--c-bg-colour);
+        border: 1px solid var(--c-border-colour);
+        &:hover {
+            --c-bg-colour: var(--c-text);
+            --c-fc-colour: var(--c-white);
+        }
+    }
+
+    &:hover {
+        text-decoration: none;
+    }
+
+
+    &-favourite {
+        text-decoration: none;
+        cursor: pointer;
+        --c-wishlist-icon-fill: none;
+        --c-wishlist-icon-stroke: #000;
+        @include transition-default;
+
+        &:hover {
+            --c-wishlist-icon-fill: #000;
+        }
+
+        &__heart {
+            display: block;
+            height: 20px;
+            width: 20px;
+        }
+
+        &.in-favourite {
+            --c-wishlist-icon-stroke: red;
+
+            &:hover {
+                --c-wishlist-icon-fill: red;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &-icon {
+        &__svg {
+            display: block;
+            height: 20px;
+            width: 18px;
+            @include transition-default;
+
+            &:hover {
+            }
+        }
+    }
+
+    &--unstyled {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+}

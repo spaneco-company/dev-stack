@@ -1,0 +1,5 @@
+.idea/
+node_modules
+.env
+!/**/.gitkeep
+.DS_Store
