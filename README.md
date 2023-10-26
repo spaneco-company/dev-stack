@@ -1,7 +1,7 @@
 # Spaneco dev stack
 
 ### Requirements
-node.js v 16.20.1
+node.js v 16.20.1 (other versions may work, too)
 
 ### List of available commands
 ```
