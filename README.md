@@ -19,3 +19,6 @@ npm run js:prod (for production, compiles everything into /assets/js/dist)
 + ❌ don't edit files inside /assets/js/dist
 + ✅ edit files inside /assets/scss
 + ✅ edit files inside /assets/js/src 
+
+### Todo
+- Dockerize
