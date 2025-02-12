@@ -58,6 +58,75 @@
   }
 }
 
+
+/**
+Define gap sizes
+*/
+
+$gap-sizes: (
+    0: 0px,
+    10: 10px,
+    20: 20px,
+    30: 30px,
+    40: 40px,
+    50: 50px
+);
+
+/**
+Generate gap classes
+Allow to use gap size on parent container
+*/
+@each $media-breakpoint-key, $media-breakpoint-value in $media-breakpoints {
+  $operator: '>=';
+  $gap-name: 'gap-';
+
+  @if $media-breakpoint-key == '' {
+      $gap-name: 'gap';
+  }
+
+  @each $gap-key, $gap-value in $gap-sizes {
+      @include media('#{$operator}#{$media-breakpoint-key}') {
+          .#{$gap-name}#{$media-breakpoint-key}-#{$gap-key} {
+              gap: $gap-value;
+              
+              @each $media-breakpoint-key2, $media-breakpoint-value2 in $media-breakpoints {
+                  $operator2: '>=';
+                  $col-name: 'col-';
+
+                  @if $media-breakpoint-key2 == '' {
+                      $col-name: 'col';
+                  }
+
+                  @include media('#{$operator2}#{$media-breakpoint-key2}') {
+                      @each $key, $value in $_grid-layout-sizes {
+                          .#{$col-name}#{$media-breakpoint-key2}-#{$key} {
+                              $adjusted-width: calc(#{$value} - #{$gap-value / (12 / $key)});
+                              flex: 0 0 #{$adjusted-width};
+                              max-width: #{$adjusted-width};
+                          }
+
+                          @if $key < 12 {
+                              .#{$col-name}#{$media-breakpoint-key2}-offset-#{$key} {
+                                  margin-left: calc(#{$value} + #{$gap-value});
+                              }
+                          }
+
+                          @if $key == 12 {
+                              .#{$col-name}#{$media-breakpoint-key2}-#{$key} {
+                                  $adjusted-width: calc(#{$value});
+                                  flex: 0 0 #{$adjusted-width};
+                                  max-width: #{$adjusted-width};
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+}
+
+
 /**
  * Generates classes which allow a user to set order for a specific viewport
  * e.g. order-lg-1, order-sm-5
