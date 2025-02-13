@@ -99,23 +99,15 @@ Allow to use gap size on parent container
 
                   @include media('#{$operator2}#{$media-breakpoint-key2}') {
                       @each $key, $value in $_grid-layout-sizes {
-                          .#{$col-name}#{$media-breakpoint-key2}-#{$key} {
+                          & > .#{$col-name}#{$media-breakpoint-key2}-#{$key} {
                               $adjusted-width: calc((100% - (#{$gap-value} * (12 / #{$key} - 1))) / (12 / #{$key}));
                               flex: 0 0 #{$adjusted-width};
                               max-width: #{$adjusted-width};
                           }
 
                           @if $key < 12 {
-                              .#{$col-name}#{$media-breakpoint-key2}-offset-#{$key} {
-                                  margin-left: calc(#{$value} + #{$gap-value});
-                              }
-                          }
-
-                          @if $key == 12 {
-                              .#{$col-name}#{$media-breakpoint-key2}-#{$key} {
-                                  $adjusted-width: calc(#{$value});
-                                  flex: 0 0 #{$adjusted-width};
-                                  max-width: #{$adjusted-width};
+                              & > .#{$col-name}#{$media-breakpoint-key2}-offset-#{$key} {
+                                  margin-left: calc(#{$value} + #{$gap-value * $key / 12});
                               }
                           }
                       }
